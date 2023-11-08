@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión como Pasajero</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_registros.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos_principal.css" />
+</head>
+<body>
+    <h1>Iniciar Sesión como Pasajero</h1>
+    <div id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="contactanos.html">Contáctanos</a>
+        <a href="registro.html">Registro</a>
+        <a href="inicio_sesion.html">Iniciar Sesión</a>
+    </div>
+    <div class="container"><center>
+    <section class="login-form">
+        <form action="mapa.html" method="get">
+            <label for="phone-input">Número de Teléfono:</label>
+            <input type="tel" id="phone-input" placeholder="Ingrese su número de teléfono" pattern="[0-9]{10}" required> <br>
+            <label for="password-input">Contraseña:</label>
+            <input type="password" id="password-input" placeholder="Ingrese su contraseña" required> <br>
+            <button type="submit" class="button" id="login-button">Iniciar Sesión</button>
+        </form>
+    </section>
+    </div>
+
+    <script>
+        document.getElementById('login-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            const telefonoIngresado = document.getElementById('phone-input').value;
+            const contrasenaIngresada = document.getElementById('password-input').value;
+
+            // Obtener los datos almacenados localmente
+            const telefonoAlmacenado = localStorage.getItem('usuarioTelefono');
+            const contrasenaAlmacenada = localStorage.getItem('usuarioContrasena');
+
+            // Comprobar si los datos ingresados coinciden con los datos almacenados
+            if (telefonoIngresado === telefonoAlmacenado && contrasenaIngresada === contrasenaAlmacenada) {
+                // Inicio de sesión exitoso, redirigir al usuario a la página deseada (mapa.html)
+                window.location.href = 'mapa.html';
+            } else {
+                // Datos incorrectos, mostrar un mensaje de error o realizar otras acciones
+                alert('Número de teléfono o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>

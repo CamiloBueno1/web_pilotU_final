@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Conductor</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_registros.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos_principal.css" />
+    <script src="js/funciones.js"></script>
+</head>
+<body>
+    <h1>Registro de conductor</h1>
+    <div id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="contactanos.html">Contactanos</a>
+        <a href="registro_conductor.html">Registrarse como Conductor</a>
+        <a href="inicio_sesion_conductor.html">Iniciar Sesión como Conductor</a>
+    </div>
+    <div class="container"><center>
+    <form>
+        <h1>Datos personales</h1>
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="date" name="fecha_nacimiento" required>
+        <input type="tel" placeholder="Ingrese su número de teléfono" pattern="[0-9]{10}" required>
+        <input type="password" id="password-input" placeholder="Ingrese su contraseña" required> <br>
+        <h1>Datos del vehículo</h1>
+        <input type="text" name="vehiculo" placeholder="Marca y modelo" required>
+        <input type="text" name="color" placeholder="Color" required>
+        <input type="text" placeholder="Ingrese su placa de carro" pattern="[A-Z]{3}-\d{3}" required>
+        <button type="button" class="button" id="guardar-button">Guardar Registro</button>
+    </form>
+    </center>
+    </div>
+    <script>
+        document.querySelector('#guardar-button').addEventListener('click', function () {
+            const contrasena = document.getElementById('password-input').value;
+            const telefono = document.querySelector('input[type="tel"]').value;
+
+            // Almacenar la contraseña y el teléfono en el almacenamiento local del navegador
+            localStorage.setItem('usuarioContrasena', contrasena);
+            localStorage.setItem('usuarioTelefono', telefono);
+
+            // Redirigir al usuario a la página de inicio de sesión como conductor
+            window.location.href = 'inicio_sesion_conductor.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión como Conductor</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_registros.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos_principal.css" />
+</head>
+<body>
+    <h1>Iniciar Sesión como Conductor</h1>
+    <div id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="contactanos.html">Contactanos</a>
+        <a href="registro_conductor.html">Registrarse como Conductor</a>
+        <a href="inicio_sesion_conductor.html">Iniciar Sesión como Conductor</a>
+    </div>
+    <div class="container"><center>
+        <section class="login-form">
+            <form action="bienvenida_conductor.html" method="get" onsubmit="login(event)">
+                <label for="phone-input">Número de Teléfono:</label>
+                <input type="tel" id="phone-input" placeholder="Ingrese su número de teléfono" pattern="[0-9]{10}" required> <br>
+                <label for="password-input">Contraseña:</label>
+                <input type="password" id="password-input" placeholder="Ingrese su contraseña" required> <br>
+                <button type="submit" class="button" id="login-button">Iniciar Sesión</button>
+            </form>
+        </section>
+    </div>
+    <script>
+        document.querySelector('.login-form form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const contrasenaIngresada = document.getElementById('password-input').value;
+            const telefonoIngresado = document.getElementById('phone-input').value;
+
+            // Obtener la contraseña y el teléfono almacenados localmente
+            const contrasenaAlmacenada = localStorage.getItem('usuarioContrasena');
+            const telefonoAlmacenado = localStorage.getItem('usuarioTelefono');
+
+            // Comparar la contraseña y el teléfono ingresados con los almacenados
+            if (contrasenaIngresada === contrasenaAlmacenada && telefonoIngresado === telefonoAlmacenado) {
+                // Contraseña válida, redirige al usuario a la página deseada (mapa.html)
+                window.location.href = 'bienvenida_conductor.html';
+            } else {
+                // Contraseña incorrecta, muestra un mensaje de error o realiza otras acciones
+                alert('Contraseña o número de teléfono incorrectos. Por favor, inténtalo de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>

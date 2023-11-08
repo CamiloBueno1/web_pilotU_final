@@ -1,0 +1,46 @@
+/* Estilos CSS para la página de bienvenida */
+body {
+  background-color: black; /* Color de fondo negro */
+  color: white; /* Texto en blanco */
+  font-size: 24px;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  animation: moveText 5s linear infinite; /* Animación de desplazamiento horizontal */
+  color: white; /* Letras blancas */
+}
+
+.container {
+  background-color: white; /* Color de fondo blanco */
+  color: black; /* Letras negras */
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(
+      20px
+    ); /* Ajusta la cantidad de desplazamiento horizontal */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

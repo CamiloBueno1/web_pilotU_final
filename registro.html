@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario - Pilot U</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_registros.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos_principal.css" />
+</head>
+<body>
+    <h1>Registro de Usuario</h1>
+
+    <div id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="contactanos.html">Contactanos</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="inicio_sesion_conductor.html">Inicio conductor</a>
+        <a href="inicio_sesion_pasajero.html">Inicio pasajero</a>
+    </div>
+
+    <div class="container">
+        <div class="register-choice">
+            <button onclick="redirectToRegistro('pasajero')">Registrarse como Pasajero</button>
+            <button onclick="redirectToRegistro('conductor')">Registrarse como Conductor</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToRegistro(tipo) {
+            if (tipo === 'pasajero') {
+                alert('Se registrará como Pasajero manualmente.');
+                window.location.href = 'registro_pasajero.html';
+            } else if (tipo === 'conductor') {
+                alert('Se registrará como Conductor manualmente.');
+                window.location.href = 'registro_conductor.html';
+            }
+        }
+    </script>
+</body>
+</html>
+
+

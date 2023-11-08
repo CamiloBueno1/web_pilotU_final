@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Pasajero - Pilot U</title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_registros.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos_principal.css" />
+</head>
+<body>
+    <h1>Registro de Pasajero</h1>
+    <div id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="contactanos.html">Contactanos</a>
+        <a href="registro_pasajero.html">Registro como Pasajero</a>
+        <a href="inicio_sesion_pasajero.html">Iniciar Sesión como Pasajero</a>
+    </div>
+    <div class="container">
+        <form id="registroForm" action="inicio_sesion_pasajero.html" method="get">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellidos" placeholder="Apellidos" required>
+            <input type="date" name="fecha_nacimiento" required>
+            <input type="tel" name="telefono" placeholder="Ingrese su número de teléfono" pattern="[0-9]{10}" required>
+            <input type="password" id="password-input" name="contrasena" placeholder="Ingrese su contraseña" required> <br>
+            <button type="button" class="button" id="guardar-button">Guardar Registro</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('guardar-button').addEventListener('click', function () {
+            const form = document.getElementById('registroForm');
+            const requiredInputs = form.querySelectorAll('[required]');
+
+            for (const input of requiredInputs) {
+                if (input.value.trim() === '') {
+                    alert('Por favor, complete todos los campos obligatorios.');
+                    return;
+                }
+            }
+
+            const contrasena = document.getElementById('password-input').value;
+            const telefono = form.querySelector('input[type="tel"]').value;
+
+            // Almacenar la contraseña y el teléfono en la localStorage del navegador
+            localStorage.setItem('usuarioContrasena', contrasena);
+            localStorage.setItem('usuarioTelefono', telefono);
+
+            // Redirigir al usuario a la página de inicio de sesión como pasajero
+            window.location.href = 'inicio_sesion_pasajero.html';
+        });
+    </script>
+</body>
+</html>
+
+
